@@ -4,13 +4,13 @@
       <title>aixigo Frontend Gilde - web components</title>
    </head>
    <body>
-      <div class="img-slider">
+      <img-slider>
          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/rock.jpg">
          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/grooves.jpg">
          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/arch.jpg">
          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/sunset.jpg">
 
-      </div>
+      </img-slider>
 
       <template>
          <div id="slider">
@@ -119,9 +119,14 @@ label {
 
       <script type="text/javascript">
 var template = document.querySelector('template');
-var host = document.querySelector('.img-slider');
-var root = host.createShadowRoot();
+var ImgSliderProto = Object.create(HTMLElement.prototype);
+ImgSliderProto.createdCallback = function() {
+var root = this.createShadowRoot();
 root.appendChild(document.importNode(template.content, true));
+}
+var ImgSlider = document.registerElement('img-slider', {
+prototype: ImgSliderProto
+});
       </script>
    </body>
 </html>
