@@ -4,6 +4,9 @@
       <title>aixigo Frontend Gilde - web components</title>
    </head>
    <body>
+      <div class="img-slider">
+      </div>
+
       <template>
          <div id="slider">
             <input checked="" type="radio" name="slider" id="slide1" selected="false">
@@ -111,5 +114,12 @@ label {
 }
          </style>
       </template>
+
+      <script type="text/javascript">
+var template = document.querySelector('template');
+var host = document.querySelector('.img-slider');
+var root = host.createShadowRoot();
+root.appendChild(document.importNode(template.content, true));
+      </script>
    </body>
 </html>
