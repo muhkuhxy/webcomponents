@@ -105,13 +105,15 @@ label {
 
 <script type="text/javascript">
 var doc = document.currentScript.ownerDocument;
-var template = doc.querySelector('template');
-var ImgSliderProto = Object.create(HTMLElement.prototype);
-ImgSliderProto.createdCallback = function() {
-   var root = this.createShadowRoot();
-   root.appendChild(document.importNode(template.content, true));
-}
 var ImgSlider = document.registerElement('img-slider', {
-   prototype: ImgSliderProto
+   prototype: Object.create(HTMLElement.prototype, {
+      createdCallback: {
+         value: function() {
+            var root = this.createShadowRoot();
+            var template = doc.querySelector('template');
+            root.appendChild(document.importNode(template.content, true));
+         }
+      }
+   })
 });
 </script>
