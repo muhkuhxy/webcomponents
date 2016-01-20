@@ -5,6 +5,11 @@
    </head>
    <body>
       <div class="img-slider">
+         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/rock.jpg">
+         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/grooves.jpg">
+         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/arch.jpg">
+         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/sunset.jpg">
+
       </div>
 
       <template>
@@ -16,10 +21,7 @@
             <div id="slides">
                <div id="overflow">
                   <div class="inner">
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/rock.jpg">
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/grooves.jpg">
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/arch.jpg">
-                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5689/sunset.jpg">
+                     <content select="img"></content>
                   </div>
                </div>
             </div>
@@ -72,7 +74,7 @@
   transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
 }
 
-#slides img {
+#slides ::content img {
   width: 25%;
   float: left;
 }
